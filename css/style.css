@@ -192,3 +192,44 @@ body {
 .nav__links .logo__effect:hover {
   background: grey;
 }
+
+/* video switch */
+
+.video__switch-container {
+  display: none;
+}
+
+@media screen and (min-width:768px) {
+  .video__switch-container {
+    display: block;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    z-index: 3;
+  }
+
+  .video__switch {
+    position: relative;
+    width: 5rem;
+    background: var(--yellow);
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    padding: .25rem;
+    cursor: pointer;
+    border-radius: .5rem;
+  }
+
+
+  .video__switch-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: saddlebrown;
+    width: 50%;
+    height: 100%;
+    border-radius: .5rem;
+  }
+
+
+}
