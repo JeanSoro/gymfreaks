@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css?family=La+Belle+Aurore|Open+Sans&display=swap');
+@import "./reset.css";
+
+
+:root {
+  --brightYellow: #E38505;
+  --darkBrown: #BB9457;
+  --yellow: rgb(242, 180, 80);
+  --brown: #382923;
+  --black: #191919;
+  --grey: #A9B2AC;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--black);
+  background: linear-gradient(rgba(255, 255, 255, 0.80), rgba(255, 255, 255, 0.80)),
+    url('../img/bodyBcg.jpg');
+}
+
+* {
+  box-sizing: border-box;
+  /*adds padding without height and width additional value interfering*/
+  /* margin: 0;
+  padding: 0; */
+}
+
+
+/*----> GLOBAL STYLES-----------------> */
+
+.bell-fonts {
+  font-family: 'La Belle Aurore', cursive
+}
+
+/*----> END OF GLOBAL STYLES --------->*/
+
+/*----> HEADER STYLES-----------------> */
+
+.header {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 80%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    background: url('../img/headerBcg.jpg') center/cover fixed no-repeat;
+    /* background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat; */
+  }
+}
+
+/*----> BANNER STYLES-----------------> */
+.banner {
+  text-align: center;
+  z-index: 3;
+}
+
+.banner__title {
+  font-size: 4rem;
+  text-transform: capitalize;
+  color: var(--brightYellow)
+}
+
+@media screen and (min-width:768px) {
+  .banner__title {
+    font-size: 9rem;
+  }
+}
+
+
+.banner__social-icon {
+  display: block;
+  text-decoration: none;
+  color: var(--black);
+  border: .1rem solid var(--black);
+  border-radius: 40%;
+  padding: .25rem;
+  transition: all .3s ease-in-out;
+}
+
+.banner__social-icon:hover {
+  background: var(--brightYellow);
+  color: var(--black);
+}
+
+.banner__icons {
+  width: 50%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 2rem);
+  grid-column-gap: .5rem;
+  justify-content: center;
+}
+
+/* video */
+
+.video__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+
+.video__item {
+
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+
+}
+
+/*-----> NAV BTN */
+
+.navBtn {
+  position: fixed;
+  top: 5%;
+  right: 5%;
+  font-size: 3.5rem;
+  color: var(--brightYellow);
+  cursor: pointer;
+  animation-name: pulse;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+
+}
+
+/* Nav Animation */
+
+@keyframes pulse {
+  0% {
+    transform: scale(1)
+  }
+
+  50% {
+    transform: scale(1.5)
+  }
+
+  100% {
+    transform: scale(1)
+  }
+}
