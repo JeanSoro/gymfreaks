@@ -148,3 +148,47 @@ body {
     transform: scale(1)
   }
 }
+
+/* nav */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 10rem;
+  background: rgba(242, 180, 80, .9);
+  z-index: 3;
+}
+
+
+.nav__single-link {
+  display: block;
+  text-decoration: none;
+  text-transform: capitalize;
+  color: tomato;
+  font-size: 1.5rem;
+  padding: .5rem 1rem;
+  transition: all .5s ease-in-out;
+}
+
+.nav__single-link:hover {
+  background: var(--brown);
+  color: slateblue;
+  padding-left: 1.5rem;
+}
+
+
+
+.nav__links {
+  list-style-type: none;
+}
+
+.nav__links .logo {
+  width: 75px;
+  height: 75px;
+}
+
+.nav__links .logo__effect:hover {
+  background: grey;
+}
