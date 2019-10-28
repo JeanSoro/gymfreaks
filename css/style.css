@@ -253,6 +253,11 @@ body {
     width: 50%;
     height: 100%;
     border-radius: .5rem;
+    transition: all .3s ease-out;
+  }
+
+  .btnSlide {
+    left: 50%;
   }
 
 
