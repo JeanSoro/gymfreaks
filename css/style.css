@@ -169,7 +169,7 @@ body {
   top: 0;
   left: 0;
   height: 100%;
-  width: 10rem;
+  /* width: 10rem; */
   background: rgba(242, 180, 80, .9);
   z-index: 3;
 }
@@ -204,6 +204,17 @@ body {
 
 .nav__links .logo__effect:hover {
   background: grey;
+}
+
+/* NAV TOGGLE CLASS */
+.nav {
+  width: 0;
+  overflow: hidden;
+  transition: all .3s ease-in-out;
+}
+
+.nav--show {
+  width: 10rem;
 }
 
 /* video switch */
