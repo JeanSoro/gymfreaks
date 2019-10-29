@@ -32,6 +32,55 @@ body {
   font-family: 'La Belle Aurore', cursive
 }
 
+.section-padding {
+  padding: 3rem 0;
+}
+
+.grid-container {
+  max-width: 90vw;
+  /*will never be more than 90% of screen size*/
+  margin: 2rem auto;
+  display: grid;
+  grid-row-gap: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .grid-container--medium-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 4rem;
+  }
+
+  .grid-container {
+    max-width: 75vw;
+
+  }
+}
+
+.section-title {
+  padding: 1rem .5rem;
+}
+
+.section-title__name {
+  font-size: 3rem;
+  text-transform: capitalize;
+}
+
+.section-title__underline {
+  background: var(--brightYellow);
+  width: 5rem;
+  height: .25rem;
+}
+
+.section-title__text {
+  letter-spacing: .1rem;
+  line-height: 1.5;
+  margin-top: 1rem;
+  color: var(--grey);
+}
+
+/*----> End of GLOBAL STYLES-----------------> */
+
 /*----> Preloader STYLES --------->*/
 
 .preloader {
@@ -260,7 +309,26 @@ body {
     left: 50%;
   }
 
-
 }
 
-/* 1:30:27 */
+/* About Section */
+
+.about-container {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto 1fr;
+  grid-gap: 2rem;
+}
+
+.about__img-item {
+  width: 100%;
+  display: block;
+  height: 100%;
+  border-radius: .25rem;
+}
+
+@media screen and (min-width:768px) {
+  .about__img-special {
+    order: -1;
+  }
+}
