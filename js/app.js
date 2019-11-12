@@ -18,17 +18,78 @@ class UI {
       btn.classList.add('btnSlide')
       document.querySelector('.video__item').pause();
 
+
     } else {
       btn.classList.remove('btnSlide')
       document.querySelector('.video__item').play();
     }
   }
 
+  checkEmpty(name, lastname, email) {
+    let result;
+
+    if (name === '' || lastname === '' || email === '') {
+      result = false
+    } else {
+      result = true
+    }
+
+    return result
+
+  }
+
+  // Show feedback
+  showFeedback(message, alertType) {
+
+    if (alertType === 'success') {
+
+      let feedBack = document.querySelector('.sign-up-form__feedback');
+      feedBack.classList.add('success');
+      feedBack.innerText = message;
+      this.removeAlert('success');
+
+    } else if (alertType === 'error') {
+      let feedBack = document.querySelector('.sign-up-form__feedback');
+      feedBack.classList.add('error');
+      feedBack.innerText = message;
+      this.removeAlert('error');
+    }
+
+  }
+
+  // Remove Alert
+  removeAlert(alertType) {
+    setTimeout(() => {
+      let feedBack = document.querySelector('.sign-up-form__feedback');
+      feedBack.classList.remove(alertType);
+
+    }, 3000);
+  }
+
+  // Add new customer to DOM
+  addNewCustomerToDom(newcustomer) {
+    const images = [1, 2, 3, 4];
+    let random = Math.floor(Math.random() * images.length);
+  }
+
 
 }
 
 
-function eventListeners() {
+class Customer {
+  constructor(name, lastname, email) {
+    this.name = name;
+    this.lastname = lastname;
+    this.email = email;
+  }
+}
+
+
+
+
+
+
+const eventListeners = () => {
 
   const ui = new UI();
 
@@ -47,7 +108,33 @@ function eventListeners() {
     ui.videoControls();
   })
 
+  //------------------submit form
+  document.querySelector('.sign-up-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.querySelector('.input-name').value;
+    const lastName = document.querySelector('.input-lastname').value;
+    const email = document.querySelector('.input-email').value;
+
+    let value = ui.checkEmpty(name, lastName, email);
+
+    if (value) {
+
+      let newCustomer = new Customer(name, lastName, email)
+      console.log(newCustomer)
+
+      ui.addNewCustomerToDom(newCustomer);
+
+      ui.showFeedback('You have been added to the list!', 'success');
+
+    } else {
+
+      ui.showFeedback('some form values are empty', 'error');
+    }
+
+  })
+
 }
+
 
 eventListeners();
 
