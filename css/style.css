@@ -62,8 +62,14 @@ body {
   }
 }
 
+/* Section styles */
+
 .section-title {
   padding: 1rem .5rem;
+}
+
+.section-title--left {
+  margin-left: 10rem;
 }
 
 .section-title__name {
@@ -75,6 +81,7 @@ body {
   background: var(--brightYellow);
   width: 5rem;
   height: .25rem;
+  margin-top: 1.3rem;
 }
 
 .section-title__text {
@@ -281,7 +288,6 @@ body {
   color: slateblue;
   padding-left: 1.5rem;
 }
-
 
 
 .nav__links {
@@ -519,6 +525,63 @@ body {
 @media screen and (min-width:768px) {
   .free-session-card__list {
     grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+  }
+}
+
+/* virtual tour session */
+
+.virtual-tour-container {
+  max-width: 90vw;
+  margin: 2rem auto;
+}
+
+.virtual-tour-item__img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: all .5s linear;
+  opacity: 1;
+}
+
+.virtual-tour-item {
+  background: linear-gradient(var(--grey), var(--grey));
+  /* prevent image from overflowing on hover */
+  overflow: hidden;
+  position: relative;
+  margin-bottom: .5rem;
+}
+
+.virtual-tour-item:hover .virtual-tour-item__img {
+  opacity: .5;
+  transform: scale(1.2)
+}
+
+.virtual-tour-item__icon {
+  position: absolute;
+  color: crimson;
+  top: 50%;
+  left: 50%;
+  display: inline-block;
+  font-size: 3rem;
+  text-decoration: none;
+  transition: all .5s ease-in-out;
+  transform: scale(0);
+}
+
+.virtual-tour-item:hover .virtual-tour-item__icon {
+  transform: scale(1.2) translate(-50%, -50%);
+}
+
+.virtual-tour-item__icon:hover {
+  color: cornsilk;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 576px) {
+  .grid-tour {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
   }
 }

@@ -18,7 +18,6 @@ class UI {
       btn.classList.add('btnSlide')
       document.querySelector('.video__item').pause();
 
-
     } else {
       btn.classList.remove('btnSlide')
       document.querySelector('.video__item').play();
