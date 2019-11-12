@@ -11,14 +11,19 @@
   --grey: #A9B2AC;
 }
 
+
+
 body {
   font-family: 'Open Sans', sans-serif;
   color: var(--black);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.80)), to(rgba(255, 255, 255, 0.80))),
+    url('../img/bodyBcg.jpg');
   background: linear-gradient(rgba(255, 255, 255, 0.80), rgba(255, 255, 255, 0.80)),
     url('../img/bodyBcg.jpg');
 }
 
 * {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   /*adds padding without height and width additional value interfering*/
   /* margin: 0;
@@ -92,7 +97,11 @@ body {
   background: white;
   z-index: 999;
   display: grid;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -102,7 +111,11 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 80%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   position: relative;
 }
@@ -143,6 +156,7 @@ body {
   border: .1rem solid var(--black);
   border-radius: 40%;
   padding: .25rem;
+  -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
 }
 
@@ -157,6 +171,8 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 2rem);
   grid-column-gap: .5rem;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -174,6 +190,8 @@ body {
 
 .video__item {
 
+  -o-object-fit: cover;
+
   object-fit: cover;
   width: 100%;
   height: 100%;
@@ -189,24 +207,47 @@ body {
   font-size: 3.5rem;
   color: var(--brightYellow);
   cursor: pointer;
+  -webkit-animation-name: pulse;
   animation-name: pulse;
+  -webkit-animation-duration: 2s;
   animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 
 }
 
 /* Nav Animation */
 
-@keyframes pulse {
+@-webkit-keyframes pulse {
   0% {
+    -webkit-transform: scale(1);
     transform: scale(1)
   }
 
   50% {
+    -webkit-transform: scale(1.5);
     transform: scale(1.5)
   }
 
   100% {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+  }
+
+  50% {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5)
+  }
+
+  100% {
+    -webkit-transform: scale(1);
     transform: scale(1)
   }
 }
@@ -231,6 +272,7 @@ body {
   color: tomato;
   font-size: 1.5rem;
   padding: .5rem 1rem;
+  -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
 }
 
@@ -259,6 +301,7 @@ body {
 .nav {
   width: 0;
   overflow: hidden;
+  -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
 }
 
@@ -286,7 +329,11 @@ body {
     width: 5rem;
     background: var(--yellow);
     text-transform: uppercase;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     padding: .25rem;
     cursor: pointer;
@@ -302,6 +349,7 @@ body {
     width: 50%;
     height: 100%;
     border-radius: .5rem;
+    -webkit-transition: all .3s ease-out;
     transition: all .3s ease-out;
   }
 
@@ -329,6 +377,8 @@ body {
 
 @media screen and (min-width:768px) {
   .about__img-special {
+    -webkit-box-ordinal-group: 0;
+    -ms-flex-order: -1;
     order: -1;
   }
 
@@ -350,6 +400,8 @@ body {
   text-align: center;
   display: grid;
   grid-template-columns: 70%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   grid-row-gap: 1.25rem;
 }
@@ -396,6 +448,27 @@ body {
   /* outline: none; */
 }
 
+.input-name::-webkit-input-placeholder,
+.input-lastname::-webkit-input-placeholder,
+.input-email::-webkit-input-placeholder {
+  color: red;
+  text-transform: capitalize;
+}
+
+.input-name:-ms-input-placeholder,
+.input-lastname:-ms-input-placeholder,
+.input-email:-ms-input-placeholder {
+  color: red;
+  text-transform: capitalize;
+}
+
+.input-name::-ms-input-placeholder,
+.input-lastname::-ms-input-placeholder,
+.input-email::-ms-input-placeholder {
+  color: red;
+  text-transform: capitalize;
+}
+
 .input-name::placeholder,
 .input-lastname::placeholder,
 .input-email::placeholder {
@@ -407,6 +480,7 @@ body {
   background: var(--yellow);
   color: black;
   text-transform: uppercase;
+  -webkit-transition: all .5s linear;
   transition: all .5s linear;
   cursor: pointer;
 }
@@ -424,6 +498,8 @@ body {
 .person {
   display: grid;
   grid-template-columns: auto auto 1fr;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   text-align: left;
   grid-gap: 1rem;

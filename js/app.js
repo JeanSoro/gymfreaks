@@ -67,13 +67,36 @@ class UI {
   }
 
   // Add new customer to DOM
-  addNewCustomerToDom(newcustomer) {
+  addNewCustomerToDom(newCustomer) {
     const images = [1, 2, 3, 4];
     let random = Math.floor(Math.random() * images.length);
+    const div = document.createElement('div');
+    div.classList.add('person');
+
+    div.innerHTML = `
+    
+        <img src="img/person-${random}.jpg" alt="" class="person__thumbnail">
+        <h4 class="person__name">${newCustomer.name}</h4>
+        <h4 class="person__last-name">${newCustomer.lastname}</h4>
+    `
+
+    document.querySelector('.free-session-card__list').appendChild(div);
+  }
+
+  // Clear fields
+  clearForm() {
+    document.querySelector('.input-name').value = '';
+    document.querySelector('.input-lastname').value = '';
+    document.querySelector('.input-email').value = '';
+
+
   }
 
 
 }
+
+
+
 
 
 class Customer {
@@ -83,7 +106,6 @@ class Customer {
     this.email = email;
   }
 }
-
 
 
 
@@ -119,12 +141,14 @@ const eventListeners = () => {
 
     if (value) {
 
-      let newCustomer = new Customer(name, lastName, email)
-      console.log(newCustomer)
+      let newCustomer = new Customer(name, lastName, email);
 
-      ui.addNewCustomerToDom(newCustomer);
+      // console.log(newCustomer)
+
 
       ui.showFeedback('You have been added to the list!', 'success');
+      ui.addNewCustomerToDom(newCustomer);
+      ui.clearForm();
 
     } else {
 
@@ -143,6 +167,8 @@ eventListeners();
 
 // contructor es5
 // function UI(){
+
+// continue lesson from 3:29:552
 
 //}
 
